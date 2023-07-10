@@ -27,9 +27,10 @@ os.environ["OPENAI_API_KEY"] = system_openai_api_key
 llm = OpenAI(api_token=system_openai_api_key)
 
 # enforce_privacy — when set to True, PandasAI only sends the column names.
-pandas_ai = PandasAI(llm, enforce_privacy = True)
+
 st.caption("Step 2 : Input the Sample Insurance CSV file")
 if st.button("Import"):
+    pandas_ai = PandasAI(llm)
     df = pd.read_csv('insurance.csv')
     st.write(df)
 
